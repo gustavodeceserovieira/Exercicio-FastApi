@@ -47,10 +47,24 @@ def calcula_tabuada(num:int, start: Optional[int] = 1 , end:Optional[int] = 10):
             "end":end,
             "tabuada": tabuada
         }
-
-
-
-
-        
-        
-
+    
+class calculo(BaseModel):
+    a: int
+    b: int
+    c: int
+@app.post("/bhaskara/")
+def bhaskara(bhaskara: calculo):
+    try:
+        x =(bhaskara.b**2)-(4*bhaskara.a*bhaskara.c)
+        x=(math.sqrt(x))
+        x1=(-bhaskara.b+x)/(2*bhaskara.a)
+        x2=(-bhaskara.b-x)/(2*bhaskara.a)
+        return{
+            "equation": f"{bhaskara.a:+}x²{bhaskara.b:+}x{bhaskara.c:+}",
+            "x1": x1,
+            "x2": x2,
+        }
+    except:
+        return {
+            "erro":"Impossível, não há solução real para essa equação"
+        }
