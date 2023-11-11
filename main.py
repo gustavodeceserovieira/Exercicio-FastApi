@@ -1,6 +1,4 @@
 from fastapi import FastAPI
-from fastapi import HTTPException
-from mysql.connector import Error
 from pydantic import BaseModel
 from typing import Optional
 import math
