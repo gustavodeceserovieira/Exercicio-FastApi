@@ -6,20 +6,14 @@ import math
 app = FastAPI()
 
 @app.get("/quadrados/")
-def quadrado_perfeito(max: Optional[int] = 5):
+def quadrado_perfeito(max: Optional[int] = 4):
     quadrados = []
-    if(max is None):
-        return{
-            "max":max,
-            "quadrados": quadrados
-        }
-    else:
-        for elementos in range(1,max+1):
-            quadrados.append(int(math.pow(elementos,2)))
-        return{
-            "max":max,
-            "quadrados": quadrados
-        }
+    for elementos in range(1,max+1):
+        quadrados.append(int(math.pow(elementos,2)))
+    return{
+        "max":max,
+        "quadrados": quadrados
+    }
     
 @app.get("/tabuada/{num}")
 def calcula_tabuada(num:int, start: Optional[int] = 1, end:Optional[int] = 10):
