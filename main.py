@@ -22,20 +22,9 @@ def quadrado_perfeito(max: Optional[int] = 5):
         }
     
 @app.get("/tabuada/{num}")
-def calcula_tabuada(num:int, start: Optional[int] = 1 , end:Optional[int] = 10):
+def calcula_tabuada(num:int, start: Optional[int] = 1, end:Optional[int] = 10):
     tabuada = []
-    if(start is None or end is None):
-        return{
-            "num":num,
-            "start":start,
-            "end":end,
-            "tabuada": tabuada
-        }
-    elif(start > end):
-        return {
-           "erro": "Start não pode ser maior que o end padrão 10"
-        }
-    else:
+    if(start <= end):
         for i in range(start, end+1):
             resultado = num * i
             tabuada.append(resultado)
@@ -44,6 +33,10 @@ def calcula_tabuada(num:int, start: Optional[int] = 1 , end:Optional[int] = 10):
             "start":start,
             "end":end,
             "tabuada": tabuada
+        }
+    else:
+        return{
+            "erro":"O start não pode ser maior que o end padrão 10"
         }
     
 class calculo(BaseModel):
