@@ -45,7 +45,7 @@ def bhaskara(bhaskara: calculo):
         x1=(-bhaskara.b+x)/(2*bhaskara.a)
         x2=(-bhaskara.b-x)/(2*bhaskara.a)
         return{
-            "equation": f"{bhaskara.a:+}x²{bhaskara.b:+}x{bhaskara.c:+}",
+            "equation": f"{bhaskara.a}x²{bhaskara.b:+}x{bhaskara.c:+}",
             "x1": x1,
             "x2": x2,
         }
